@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		288AFF320F563D130085E73F /* Endor.m in Sources */ = {isa = PBXBuildFile; fileRef = 288AFF310F563D130085E73F /* Endor.m */; };
+		288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
+		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		96CB91FA12ECB93700EFB75C /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB91F912ECB93700EFB75C /* YAJL.framework */; };
+		96CB921212ECBA8200EFB75C /* Transit.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921112ECBA8200EFB75C /* Transit.xcdatamodel */; };
+		96CB922A12ECBAD600EFB75C /* _City.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921712ECBAD600EFB75C /* _City.m */; };
+		96CB922B12ECBAD600EFB75C /* _Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921912ECBAD600EFB75C /* _Direction.m */; };
+		96CB922C12ECBAD600EFB75C /* _Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921B12ECBAD600EFB75C /* _Line.m */; };
+		96CB922D12ECBAD600EFB75C /* _Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921D12ECBAD600EFB75C /* _Stop.m */; };
+		96CB922E12ECBAD600EFB75C /* _StopTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921F12ECBAD600EFB75C /* _StopTime.m */; };
+		96CB922F12ECBAD600EFB75C /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB922112ECBAD600EFB75C /* City.m */; };
+		96CB923012ECBAD600EFB75C /* Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB922312ECBAD600EFB75C /* Direction.m */; };
+		96CB923112ECBAD600EFB75C /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB922512ECBAD600EFB75C /* Line.m */; };
+		96CB923212ECBAD600EFB75C /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB922712ECBAD600EFB75C /* Stop.m */; };
+		96CB923312ECBAD600EFB75C /* StopTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB922912ECBAD600EFB75C /* StopTime.m */; };
+		96CB926D12ECC3A100EFB75C /* Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB926C12ECC3A100EFB75C /* Generator.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		288AFF310F563D130085E73F /* Endor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Endor.m; sourceTree = "<group>"; };
+		288AFF330F563D1C0085E73F /* Endor.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = Endor.1; sourceTree = "<group>"; };
+		288AFF340F563D390085E73F /* Endor_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endor_Prefix.pch; sourceTree = "<group>"; };
+		288AFF360F563DBA0085E73F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8DD76FA10486AA7600D96B5E /* Endor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Endor; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CB91F912ECB93700EFB75C /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Library/Frameworks/YAJL.framework; sourceTree = SDKROOT; };
+		96CB921112ECBA8200EFB75C /* Transit.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Transit.xcdatamodel; sourceTree = "<group>"; };
+		96CB921612ECBAD600EFB75C /* _City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _City.h; sourceTree = "<group>"; };
+		96CB921712ECBAD600EFB75C /* _City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _City.m; sourceTree = "<group>"; };
+		96CB921812ECBAD600EFB75C /* _Direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Direction.h; sourceTree = "<group>"; };
+		96CB921912ECBAD600EFB75C /* _Direction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Direction.m; sourceTree = "<group>"; };
+		96CB921A12ECBAD600EFB75C /* _Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Line.h; sourceTree = "<group>"; };
+		96CB921B12ECBAD600EFB75C /* _Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Line.m; sourceTree = "<group>"; };
+		96CB921C12ECBAD600EFB75C /* _Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Stop.h; sourceTree = "<group>"; };
+		96CB921D12ECBAD600EFB75C /* _Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Stop.m; sourceTree = "<group>"; };
+		96CB921E12ECBAD600EFB75C /* _StopTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _StopTime.h; sourceTree = "<group>"; };
+		96CB921F12ECBAD600EFB75C /* _StopTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _StopTime.m; sourceTree = "<group>"; };
+		96CB922012ECBAD600EFB75C /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		96CB922112ECBAD600EFB75C /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		96CB922212ECBAD600EFB75C /* Direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Direction.h; sourceTree = "<group>"; };
+		96CB922312ECBAD600EFB75C /* Direction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Direction.m; sourceTree = "<group>"; };
+		96CB922412ECBAD600EFB75C /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		96CB922512ECBAD600EFB75C /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
+		96CB922612ECBAD600EFB75C /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
+		96CB922712ECBAD600EFB75C /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
+		96CB922812ECBAD600EFB75C /* StopTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopTime.h; sourceTree = "<group>"; };
+		96CB922912ECBAD600EFB75C /* StopTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopTime.m; sourceTree = "<group>"; };
+		96CB926B12ECC3A100EFB75C /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
+		96CB926C12ECC3A100EFB75C /* Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generator.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+				288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */,
+				96CB91FA12ECB93700EFB75C /* YAJL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* «PROJECTNAME» */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				28D1EE350F56433F0089643D /* Model */,
+				C6859EA2029092E104C91782 /* Documentation */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = "«PROJECTNAME»";
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				96CB921512ECBAB900EFB75C /* ManagedObjects */,
+				288AFF340F563D390085E73F /* Endor_Prefix.pch */,
+				288AFF310F563D130085E73F /* Endor.m */,
+				96CB926B12ECC3A100EFB75C /* Generator.h */,
+				96CB926C12ECC3A100EFB75C /* Generator.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				96CB91F912ECB93700EFB75C /* YAJL.framework */,
+				288AFF360F563DBA0085E73F /* CoreData.framework */,
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FA10486AA7600D96B5E /* Endor */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28D1EE350F56433F0089643D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96CB921112ECBA8200EFB75C /* Transit.xcdatamodel */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		96CB921512ECBAB900EFB75C /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				96CB921612ECBAD600EFB75C /* _City.h */,
+				96CB921712ECBAD600EFB75C /* _City.m */,
+				96CB921812ECBAD600EFB75C /* _Direction.h */,
+				96CB921912ECBAD600EFB75C /* _Direction.m */,
+				96CB921A12ECBAD600EFB75C /* _Line.h */,
+				96CB921B12ECBAD600EFB75C /* _Line.m */,
+				96CB921C12ECBAD600EFB75C /* _Stop.h */,
+				96CB921D12ECBAD600EFB75C /* _Stop.m */,
+				96CB921E12ECBAD600EFB75C /* _StopTime.h */,
+				96CB921F12ECBAD600EFB75C /* _StopTime.m */,
+				96CB922012ECBAD600EFB75C /* City.h */,
+				96CB922112ECBAD600EFB75C /* City.m */,
+				96CB922212ECBAD600EFB75C /* Direction.h */,
+				96CB922312ECBAD600EFB75C /* Direction.m */,
+				96CB922412ECBAD600EFB75C /* Line.h */,
+				96CB922512ECBAD600EFB75C /* Line.m */,
+				96CB922612ECBAD600EFB75C /* Stop.h */,
+				96CB922712ECBAD600EFB75C /* Stop.m */,
+				96CB922812ECBAD600EFB75C /* StopTime.h */,
+				96CB922912ECBAD600EFB75C /* StopTime.m */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
+		C6859EA2029092E104C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				288AFF330F563D1C0085E73F /* Endor.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F960486AA7600D96B5E /* Endor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "Endor" */;
+			buildPhases = (
+				8DD76F990486AA7600D96B5E /* Sources */,
+				8DD76F9B0486AA7600D96B5E /* Frameworks */,
+				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Endor;
+			productInstallPath = "$(HOME)/bin";
+			productName = "«PROJECTNAME»";
+			productReference = 8DD76FA10486AA7600D96B5E /* Endor */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = dthg.net;
+			};
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "Endor" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* «PROJECTNAME» */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F960486AA7600D96B5E /* Endor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F990486AA7600D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288AFF320F563D130085E73F /* Endor.m in Sources */,
+				96CB921212ECBA8200EFB75C /* Transit.xcdatamodel in Sources */,
+				96CB922A12ECBAD600EFB75C /* _City.m in Sources */,
+				96CB922B12ECBAD600EFB75C /* _Direction.m in Sources */,
+				96CB922C12ECBAD600EFB75C /* _Line.m in Sources */,
+				96CB922D12ECBAD600EFB75C /* _Stop.m in Sources */,
+				96CB922E12ECBAD600EFB75C /* _StopTime.m in Sources */,
+				96CB922F12ECBAD600EFB75C /* City.m in Sources */,
+				96CB923012ECBAD600EFB75C /* Direction.m in Sources */,
+				96CB923112ECBAD600EFB75C /* Line.m in Sources */,
+				96CB923212ECBAD600EFB75C /* Stop.m in Sources */,
+				96CB923312ECBAD600EFB75C /* StopTime.m in Sources */,
+				96CB926D12ECC3A100EFB75C /* Generator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927508733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Endor_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = Endor;
+			};
+			name = Debug;
+		};
+		1DEB927608733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Endor_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = Endor;
+			};
+			name = Release;
+		};
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "Endor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927508733DD40010E9CD /* Debug */,
+				1DEB927608733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "Endor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

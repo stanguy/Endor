@@ -14,6 +14,7 @@
     NSString* baseUrl;
     NSMutableDictionary* storedStops;
     NSDictionary* cities;
+    NSDictionary* stopSrcId;
     
     NSManagedObjectContext* context;
     

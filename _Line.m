@@ -55,6 +55,13 @@
 
 
 
+@dynamic src_id;
+
+
+
+
+
+
 @dynamic long_name;
 
 
@@ -62,7 +69,7 @@
 
 
 
-@dynamic fgcolor;
+@dynamic bgcolor;
 
 
 
@@ -76,7 +83,7 @@
 
 
 
-@dynamic bgcolor;
+@dynamic fgcolor;
 
 
 

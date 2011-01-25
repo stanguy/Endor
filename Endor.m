@@ -8,10 +8,12 @@
 
 #import <objc/objc-auto.h>
 #import "Generator.h"
+#include <sqlite3.h>
 
 
 NSManagedObjectModel *managedObjectModel();
 NSManagedObjectContext *managedObjectContext();
+NSString* dbPath();
 
 
 int main (int argc, const char * argv[]) {
@@ -39,6 +41,32 @@ int main (int argc, const char * argv[]) {
               ([error localizedDescription] != nil) ? [error localizedDescription] : @"Unknown Error");
         exit(1);
     }
+    
+    NSString* path_to_db = dbPath();
+    sqlite3* db = NULL;
+    sqlite3_open( [path_to_db UTF8String], &db );
+    char *indexStmts[] = {
+        "CREATE INDEX zstoptime_full_index on zstoptime (zline,zstop,zcalendar,zarrival)",
+        "CREATE INDEX zstoptime_fullstop_index on zstoptime(zstop,zcalendar,zarrival)",
+        "CREATE INDEX zstoptime_trip_index on zstoptime (ztrip_id,zarrival)",
+        NULL
+    };
+    int i = 0;
+    while ( indexStmts[i] != NULL ) {
+        sqlite3_stmt* stmt = NULL;
+        sqlite3_prepare_v2( db, indexStmts[i], -1, &stmt, NULL );
+        if ( stmt == NULL ) {
+            NSLog( @"error preparing statement %d", i );
+            continue;
+        }
+        if ( SQLITE_DONE != sqlite3_step( stmt ) ) {
+            NSLog( @"Error executing statement %d", i );
+            continue;
+        }
+        sqlite3_finalize( stmt );
+        ++i;
+    }
+    
     return 0;
 }
 
@@ -61,6 +89,12 @@ NSManagedObjectModel *managedObjectModel() {
 }
 
 
+NSString* dbPath() {
+    NSString *path = [[[NSProcessInfo processInfo] arguments] objectAtIndex:0];
+    path = [path stringByDeletingLastPathComponent];
+    path = [path stringByAppendingPathComponent:@"Transit.sqlite"];
+    return path;
+}
 
 NSManagedObjectContext *managedObjectContext() {
 	
@@ -76,9 +110,7 @@ NSManagedObjectContext *managedObjectContext() {
     
     NSString *STORE_TYPE = NSSQLiteStoreType;
 	
-    NSString *path = [[[NSProcessInfo processInfo] arguments] objectAtIndex:0];
-    path = [path stringByDeletingPathExtension];
-    path = [path stringByAppendingPathExtension:@"sqlite"];
+    NSString* path = dbPath();
     unlink( [path UTF8String] );
     NSURL *url = [NSURL fileURLWithPath:path];
     

@@ -23,6 +23,7 @@
 		96CB923212ECBAD600EFB75C /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB922712ECBAD600EFB75C /* Stop.m */; };
 		96CB923312ECBAD600EFB75C /* StopTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB922912ECBAD600EFB75C /* StopTime.m */; };
 		96CB926D12ECC3A100EFB75C /* Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB926C12ECC3A100EFB75C /* Generator.m */; };
+		96CB94B012EE465500EFB75C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB94AF12EE465500EFB75C /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,7 @@
 		96CB922912ECBAD600EFB75C /* StopTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopTime.m; sourceTree = "<group>"; };
 		96CB926B12ECC3A100EFB75C /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
 		96CB926C12ECC3A100EFB75C /* Generator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generator.m; sourceTree = "<group>"; };
+		96CB94AF12EE465500EFB75C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
 				288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */,
 				96CB91FA12ECB93700EFB75C /* YAJL.framework in Frameworks */,
+				96CB94B012EE465500EFB75C /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +117,7 @@
 				96CB91F912ECB93700EFB75C /* YAJL.framework */,
 				288AFF360F563DBA0085E73F /* CoreData.framework */,
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+				96CB94AF12EE465500EFB75C /* libsqlite3.dylib */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";

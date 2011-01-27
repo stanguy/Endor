@@ -69,14 +69,14 @@
 
 
 
-@dynamic bgcolor;
-
-
-
-
-
-
 @dynamic short_name;
+
+
+
+
+
+
+@dynamic bgcolor;
 
 
 

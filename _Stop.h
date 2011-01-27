@@ -4,6 +4,7 @@
 #import <CoreData/CoreData.h>
 
 
+@class ClosePoi;
 @class City;
 @class StopTime;
 @class Line;
@@ -60,6 +61,11 @@
 
 
 
+@property (nonatomic, retain) NSSet* close_pois;
+- (NSMutableSet*)close_poisSet;
+
+
+
 @property (nonatomic, retain) City* city;
 //- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
 
@@ -79,6 +85,11 @@
 @end
 
 @interface _Stop (CoreDataGeneratedAccessors)
+
+- (void)addClose_pois:(NSSet*)value_;
+- (void)removeClose_pois:(NSSet*)value_;
+- (void)addClose_poisObject:(ClosePoi*)value_;
+- (void)removeClose_poisObject:(ClosePoi*)value_;
 
 - (void)addStop_times:(NSSet*)value_;
 - (void)removeStop_times:(NSSet*)value_;
@@ -116,6 +127,11 @@
 - (NSDecimalNumber*)primitiveLon;
 - (void)setPrimitiveLon:(NSDecimalNumber*)value;
 
+
+
+
+- (NSMutableSet*)primitiveClose_pois;
+- (void)setPrimitiveClose_pois:(NSMutableSet*)value;
 
 
 

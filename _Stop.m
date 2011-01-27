@@ -83,6 +83,17 @@
 
 
 
+@dynamic close_pois;
+
+	
+- (NSMutableSet*)close_poisSet {
+	[self willAccessValueForKey:@"close_pois"];
+	NSMutableSet *result = [self mutableSetValueForKey:@"close_pois"];
+	[self didAccessValueForKey:@"close_pois"];
+	return result;
+}
+	
+
 @dynamic city;
 
 	

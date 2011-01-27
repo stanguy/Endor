@@ -50,15 +50,15 @@
 
 
 
-@property (nonatomic, retain) NSString *bgcolor;
-
-//- (BOOL)validateBgcolor:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) NSString *short_name;
 
 //- (BOOL)validateShort_name:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *bgcolor;
+
+//- (BOOL)validateBgcolor:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -139,12 +139,12 @@
 - (void)setPrimitiveLong_name:(NSString*)value;
 
 
-- (NSString*)primitiveBgcolor;
-- (void)setPrimitiveBgcolor:(NSString*)value;
-
-
 - (NSString*)primitiveShort_name;
 - (void)setPrimitiveShort_name:(NSString*)value;
+
+
+- (NSString*)primitiveBgcolor;
+- (void)setPrimitiveBgcolor:(NSString*)value;
 
 
 - (NSString*)primitiveFgcolor;

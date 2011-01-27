@@ -10,6 +10,10 @@
 		288AFF320F563D130085E73F /* Endor.m in Sources */ = {isa = PBXBuildFile; fileRef = 288AFF310F563D130085E73F /* Endor.m */; };
 		288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		9677B14212F0F1410016A460 /* _ClosePoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13B12F0F1410016A460 /* _ClosePoi.m */; };
+		9677B14312F0F1410016A460 /* _Poi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13D12F0F1410016A460 /* _Poi.m */; };
+		9677B14412F0F1410016A460 /* ClosePoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13F12F0F1410016A460 /* ClosePoi.m */; };
+		9677B14512F0F1410016A460 /* Poi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B14112F0F1410016A460 /* Poi.m */; };
 		96CB91FA12ECB93700EFB75C /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB91F912ECB93700EFB75C /* YAJL.framework */; };
 		96CB921212ECBA8200EFB75C /* Transit.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921112ECBA8200EFB75C /* Transit.xcdatamodel */; };
 		96CB922A12ECBAD600EFB75C /* _City.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921712ECBAD600EFB75C /* _City.m */; };
@@ -45,6 +49,14 @@
 		288AFF340F563D390085E73F /* Endor_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endor_Prefix.pch; sourceTree = "<group>"; };
 		288AFF360F563DBA0085E73F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD76FA10486AA7600D96B5E /* Endor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Endor; sourceTree = BUILT_PRODUCTS_DIR; };
+		9677B13A12F0F1410016A460 /* _ClosePoi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ClosePoi.h; sourceTree = "<group>"; };
+		9677B13B12F0F1410016A460 /* _ClosePoi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ClosePoi.m; sourceTree = "<group>"; };
+		9677B13C12F0F1410016A460 /* _Poi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Poi.h; sourceTree = "<group>"; };
+		9677B13D12F0F1410016A460 /* _Poi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Poi.m; sourceTree = "<group>"; };
+		9677B13E12F0F1410016A460 /* ClosePoi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosePoi.h; sourceTree = "<group>"; };
+		9677B13F12F0F1410016A460 /* ClosePoi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosePoi.m; sourceTree = "<group>"; };
+		9677B14012F0F1410016A460 /* Poi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poi.h; sourceTree = "<group>"; };
+		9677B14112F0F1410016A460 /* Poi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Poi.m; sourceTree = "<group>"; };
 		96CB91F912ECB93700EFB75C /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Library/Frameworks/YAJL.framework; sourceTree = SDKROOT; };
 		96CB921112ECBA8200EFB75C /* Transit.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Transit.xcdatamodel; sourceTree = "<group>"; };
 		96CB921612ECBAD600EFB75C /* _City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _City.h; sourceTree = "<group>"; };
@@ -141,6 +153,14 @@
 		96CB921512ECBAB900EFB75C /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				9677B13A12F0F1410016A460 /* _ClosePoi.h */,
+				9677B13B12F0F1410016A460 /* _ClosePoi.m */,
+				9677B13C12F0F1410016A460 /* _Poi.h */,
+				9677B13D12F0F1410016A460 /* _Poi.m */,
+				9677B13E12F0F1410016A460 /* ClosePoi.h */,
+				9677B13F12F0F1410016A460 /* ClosePoi.m */,
+				9677B14012F0F1410016A460 /* Poi.h */,
+				9677B14112F0F1410016A460 /* Poi.m */,
 				96CB921612ECBAD600EFB75C /* _City.h */,
 				96CB921712ECBAD600EFB75C /* _City.m */,
 				96CB921812ECBAD600EFB75C /* _Direction.h */,
@@ -239,6 +259,10 @@
 				96CB923212ECBAD600EFB75C /* Stop.m in Sources */,
 				96CB923312ECBAD600EFB75C /* StopTime.m in Sources */,
 				96CB926D12ECC3A100EFB75C /* Generator.m in Sources */,
+				9677B14212F0F1410016A460 /* _ClosePoi.m in Sources */,
+				9677B14312F0F1410016A460 /* _Poi.m in Sources */,
+				9677B14412F0F1410016A460 /* ClosePoi.m in Sources */,
+				9677B14512F0F1410016A460 /* Poi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

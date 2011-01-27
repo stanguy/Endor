@@ -10,8 +10,10 @@
 #import <YAJL/YAJL.h>
 
 #import "City.h"
+#import "ClosePoi.h"
 #import "Direction.h"
 #import "Line.h"
+#import "Poi.h"
 #import "Stop.h"
 #import "StopTime.h"
 
@@ -50,16 +52,16 @@
 }
 
 -(void) flushIf {
-    if ( insertedObjects > 1000 ) {
+    if ( insertedObjects > 10000 ) {
         [self flushContext];
     }
 }
 
 
--(NSArray*)loadRemoteJsonFor:(NSString*)pathComponent {
+-(id)loadRemoteJsonFor:(NSString*)pathComponent {
     NSString* path = [NSString stringWithFormat:@"%@/%@.json", baseUrl, pathComponent];
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:path]];
-    NSArray* json = [data yajl_JSON];
+    id json = [data yajl_JSON];
     return json;
 }
 
@@ -97,12 +99,25 @@
     return dir_dict;
 }
 
+-(NSDictionary*) loadTrips:(NSString*)dbId {
+    NSArray* tripsData = [self loadRemoteJsonFor:[NSString stringWithFormat:@"lines/%@/bearings", dbId]];
+    NSMutableDictionary* trips = [NSMutableDictionary dictionaryWithCapacity:530];
+    for( NSDictionary* trip in tripsData ) {
+        NSString* bearing = [trip objectForKey:@"br"] ;
+        if ( bearing != nil && bearing != (id)[NSNull null]) {
+            [trips setValue:bearing forKey:[[trip objectForKey:@"id"] stringValue] ];
+        }
+    }
+    return trips;
+}
+
+
 NSNumber* incCounter( NSNumber* num ) {
     int count = [num intValue] + 1;
     return [NSNumber numberWithInt:count];
 }
 
--(int) loadStopTimesOfLine:(Line*)line withLineId:(NSString*)lineId atStop:(Stop*)stop withStopId:(NSString*)stopId withDirections:(NSDictionary*)dir_dict{
+-(int) loadStopTimesOfLine:(Line*)line withLineId:(NSString*)lineId atStop:(Stop*)stop withStopId:(NSString*)stopId withDirections:(NSDictionary*)dir_dict withBearings:(NSDictionary*)trips{
     NSArray* stop_times = [self loadRemoteJsonFor:[NSString stringWithFormat:@"lines/%@/stops/%@/stop_times", lineId, stopId]];
     int added_stop_times = 0;
     for( NSDictionary* container in stop_times ) {
@@ -113,12 +128,48 @@ NSNumber* incCounter( NSNumber* num ) {
         stopTime.departure = [attributes objectForKey:@"departure"];
         stopTime.calendar = [attributes objectForKey:@"calendar"];
         stopTime.trip_id = [attributes objectForKey:@"trip_id"];
+        NSString* bearing = [trips objectForKey:[stopTime.trip_id stringValue]];
+        if( bearing != nil && ( bearing != (id)[NSNull null] ) ){
+            stopTime.trip_bearing = bearing;
+        }
         stopTime.line = line;
         stopTime.stop = stop;
         stopTime.direction = [dir_dict objectForKey:[[attributes objectForKey:@"headsign_id"] stringValue]];
         ++added_stop_times;
     }
     return added_stop_times;
+}
+
+-(void)loadProximity {
+    NSMutableDictionary* stored_pois = [NSMutableDictionary dictionaryWithCapacity:230];
+    for( NSString* stop_id in [storedStops allKeys] ) {
+        Stop* stop = [storedStops objectForKey:stop_id];
+        NSDictionary* stop_pois = [self loadRemoteJsonFor:[NSString stringWithFormat:@"stops/%@/close", stop_id]];
+        for( NSString* poi_name in [stop_pois allKeys] ) {
+            NSArray* pois = [stop_pois objectForKey:poi_name];
+            for( NSDictionary* jspoi in pois ) {
+                NSString* key = [NSString stringWithFormat:@"%@-%@", 
+                                 poi_name, [jspoi objectForKey:@"id"]];
+                Poi* poi = [stored_pois objectForKey:key];
+                if ( nil == poi ) {
+                    poi = [Poi insertInManagedObjectContext:context];
+                    poi.name = [jspoi objectForKey:@"name"];
+                    id address = [jspoi objectForKey:@"address"];
+                    if( address != nil && ( address != (id)[NSNull null] ) ){
+                        poi.address = address;
+                    }
+                    poi.lat = [NSDecimalNumber decimalNumberWithDecimal:[[jspoi objectForKey:@"lat"] decimalValue]];
+                    poi.lon = [NSDecimalNumber decimalNumberWithDecimal:[[jspoi objectForKey:@"lon"] decimalValue]];
+                    poi.type = poi_name;
+                    [stored_pois setObject:poi forKey:key];
+                }
+                ClosePoi* cpoi = [ClosePoi insertInManagedObjectContext:context];
+                cpoi.poi = poi;
+                cpoi.distance = [jspoi objectForKey:@"distance"];
+                [[stop close_poisSet] addObject:cpoi];
+            }
+        }
+    }
 }
 
 -(void)project {
@@ -144,6 +195,8 @@ NSNumber* incCounter( NSNumber* num ) {
         line.forced_id = [NSNumber numberWithInt:[line.short_name intValue]];
         NSDictionary* dir_dict = [self loadDirections:line withId:dbId];
         
+        NSDictionary* trips = [self loadTrips:dbId];
+        
         NSArray* stops = [self loadRemoteJsonFor:[NSString stringWithFormat:@"lines/%@/stops", dbId]];
         for( NSDictionary* stop_container in stops ) {
             NSDictionary* stop_attributes = [stop_container objectForKey:@"stop"];
@@ -165,12 +218,13 @@ NSNumber* incCounter( NSNumber* num ) {
             }
             [[line stopsSet] addObject:stop];
             stop.line_count = incCounter( stop.line_count );
-            stop_times_added += [self loadStopTimesOfLine:line withLineId:dbId atStop:stop withStopId:stop_id withDirections:dir_dict];
+            stop_times_added += [self loadStopTimesOfLine:line withLineId:dbId atStop:stop withStopId:stop_id withDirections:dir_dict withBearings:trips];
         }
         NSLog( @"stoptimes added: %d", stop_times_added );        
         [self flushIf];
     }
-    NSLog( @"%d", [lines_data count] );
+    NSLog( @"%d lines", [lines_data count] );
+    [self loadProximity];
     [self flushContext];
 }
 

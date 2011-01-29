@@ -140,6 +140,12 @@ NSNumber* incCounter( NSNumber* num ) {
     return added_stop_times;
 }
 
+void incTypeCounter(Stop* stop, NSString* name ) {
+    NSString* attrName = [NSString stringWithFormat:@"%@_count", name];
+    int count = [[stop valueForKey:attrName] intValue]+1;
+    [stop setValue:[NSNumber numberWithInt:count] forKey:attrName];
+}
+
 -(void)loadProximity {
     NSMutableDictionary* stored_pois = [NSMutableDictionary dictionaryWithCapacity:230];
     for( NSString* stop_id in [storedStops allKeys] ) {
@@ -167,6 +173,7 @@ NSNumber* incCounter( NSNumber* num ) {
                 cpoi.poi = poi;
                 cpoi.distance = [jspoi objectForKey:@"distance"];
                 [[stop close_poisSet] addObject:cpoi];
+                incTypeCounter( stop, poi_name );
             }
         }
     }
@@ -193,6 +200,7 @@ NSNumber* incCounter( NSNumber* num ) {
         line.usage = [attributes objectForKey:@"usage"];
         line.has_picto = [NSNumber numberWithBool:([[attributes objectForKey:@"picto_url"] length] > 0)];
         line.forced_id = [NSNumber numberWithInt:[line.short_name intValue]];
+        line.accessible = [attributes objectForKey:@"accessible"];
         NSDictionary* dir_dict = [self loadDirections:line withId:dbId];
         
         NSDictionary* trips = [self loadTrips:dbId];
@@ -209,6 +217,7 @@ NSNumber* incCounter( NSNumber* num ) {
                 stop.src_id = [stopSrcId objectForKey:stop_id];
                 stop.lat = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lat"] decimalValue]];
                 stop.lon = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lon"] decimalValue]];
+                stop.accessible = [stop_attributes objectForKey:@"accessible"];
                 City* city = [cities objectForKey:[stop_attributes objectForKey:@"city_id"]];
                 stop.city = city;
                 city.stop_count = incCounter( city.stop_count );

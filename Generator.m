@@ -217,6 +217,7 @@ void incTypeCounter(Stop* stop, NSString* name ) {
                 stop.src_id = [stopSrcId objectForKey:stop_id];
                 stop.lat = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lat"] decimalValue]];
                 stop.lon = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lon"] decimalValue]];
+                stop.slug = [stop_attributes objectForKey:@"slug"];
                 stop.accessible = [stop_attributes objectForKey:@"accessible"];
                 City* city = [cities objectForKey:[stop_attributes objectForKey:@"city_id"]];
                 stop.city = city;

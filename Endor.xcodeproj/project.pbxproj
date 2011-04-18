@@ -10,6 +10,8 @@
 		288AFF320F563D130085E73F /* Endor.m in Sources */ = {isa = PBXBuildFile; fileRef = 288AFF310F563D130085E73F /* Endor.m */; };
 		288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		966E4D7E13523594005AE1BF /* _StopAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E4D7B13523594005AE1BF /* _StopAlias.m */; };
+		966E4D7F13523594005AE1BF /* StopAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E4D7D13523594005AE1BF /* StopAlias.m */; };
 		9677B14212F0F1410016A460 /* _ClosePoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13B12F0F1410016A460 /* _ClosePoi.m */; };
 		9677B14312F0F1410016A460 /* _Poi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13D12F0F1410016A460 /* _Poi.m */; };
 		9677B14412F0F1410016A460 /* ClosePoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13F12F0F1410016A460 /* ClosePoi.m */; };
@@ -49,6 +51,10 @@
 		288AFF340F563D390085E73F /* Endor_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endor_Prefix.pch; sourceTree = "<group>"; };
 		288AFF360F563DBA0085E73F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD76FA10486AA7600D96B5E /* Endor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Endor; sourceTree = BUILT_PRODUCTS_DIR; };
+		966E4D7A13523594005AE1BF /* _StopAlias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _StopAlias.h; sourceTree = "<group>"; };
+		966E4D7B13523594005AE1BF /* _StopAlias.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _StopAlias.m; sourceTree = "<group>"; };
+		966E4D7C13523594005AE1BF /* StopAlias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopAlias.h; sourceTree = "<group>"; };
+		966E4D7D13523594005AE1BF /* StopAlias.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopAlias.m; sourceTree = "<group>"; };
 		9677B13A12F0F1410016A460 /* _ClosePoi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ClosePoi.h; sourceTree = "<group>"; };
 		9677B13B12F0F1410016A460 /* _ClosePoi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ClosePoi.m; sourceTree = "<group>"; };
 		9677B13C12F0F1410016A460 /* _Poi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Poi.h; sourceTree = "<group>"; };
@@ -153,6 +159,10 @@
 		96CB921512ECBAB900EFB75C /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				966E4D7A13523594005AE1BF /* _StopAlias.h */,
+				966E4D7B13523594005AE1BF /* _StopAlias.m */,
+				966E4D7C13523594005AE1BF /* StopAlias.h */,
+				966E4D7D13523594005AE1BF /* StopAlias.m */,
 				9677B13A12F0F1410016A460 /* _ClosePoi.h */,
 				9677B13B12F0F1410016A460 /* _ClosePoi.m */,
 				9677B13C12F0F1410016A460 /* _Poi.h */,
@@ -263,6 +273,8 @@
 				9677B14312F0F1410016A460 /* _Poi.m in Sources */,
 				9677B14412F0F1410016A460 /* ClosePoi.m in Sources */,
 				9677B14512F0F1410016A460 /* Poi.m in Sources */,
+				966E4D7E13523594005AE1BF /* _StopAlias.m in Sources */,
+				966E4D7F13523594005AE1BF /* StopAlias.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

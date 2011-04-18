@@ -15,6 +15,7 @@
 #import "Line.h"
 #import "Poi.h"
 #import "Stop.h"
+#import "StopAlias.h"
 #import "StopTime.h"
 
 
@@ -146,6 +147,18 @@ void incTypeCounter(Stop* stop, NSString* name ) {
     [stop setValue:[NSNumber numberWithInt:count] forKey:attrName];
 }
 
+-(void) loadStopAliasesFor: (Stop*)stop withId:(NSString*) stop_id {
+    NSArray* stop_aliases = [self loadRemoteJsonFor:[NSString stringWithFormat:@"stops/%@/stop_aliases", stop_id]];
+    for( NSDictionary* container in stop_aliases ) {
+        NSDictionary* attributes = [container objectForKey:@"stop_alias"];
+        StopAlias* stopAlias = [StopAlias insertInManagedObjectContext:context];
+        insertedObjects++;
+        stopAlias.src_code = [attributes objectForKey:@"src_code"];
+        stopAlias.src_id = [attributes objectForKey:@"src_id"];
+        stopAlias.stop = stop;
+    }
+}
+
 -(void)loadProximity {
     NSMutableDictionary* stored_pois = [NSMutableDictionary dictionaryWithCapacity:230];
     for( NSString* stop_id in [storedStops allKeys] ) {
@@ -223,7 +236,7 @@ void incTypeCounter(Stop* stop, NSString* name ) {
                 stop.city = city;
                 city.stop_count = incCounter( city.stop_count );
                 stop.line_count = [NSNumber numberWithInt:0];
-                
+                [self loadStopAliasesFor:stop withId:(NSString*)stop_id];
                 [storedStops setValue:stop forKey:stop_id];
             }
             [[line stopsSet] addObject:stop];

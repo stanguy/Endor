@@ -211,7 +211,12 @@ void incTypeCounter(Stop* stop, NSString* name ) {
         line.bgcolor = [attributes objectForKey:@"bgcolor"];
         line.fgcolor = [attributes objectForKey:@"fgcolor"];
         line.usage = [attributes objectForKey:@"usage"];
-        line.has_picto = [NSNumber numberWithBool:([[attributes objectForKey:@"picto_url"] length] > 0)];
+        id picto_url = [attributes objectForKey:@"picto_url"];
+        if ( picto_url != (id)[NSNull null] ) {
+            line.has_picto = [NSNumber numberWithBool:([picto_url length] > 0)];
+        } else {
+            line.has_picto = [NSNumber numberWithBool:NO];
+        }
         line.forced_id = [NSNumber numberWithInt:[line.short_name intValue]];
         line.accessible = [attributes objectForKey:@"accessible"];
         NSDictionary* dir_dict = [self loadDirections:line withId:dbId];
@@ -228,8 +233,10 @@ void incTypeCounter(Stop* stop, NSString* name ) {
                 insertedObjects++;
                 stop.name = [stop_attributes objectForKey:@"name"];
                 stop.src_id = [stopSrcId objectForKey:stop_id];
-                stop.lat = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lat"] decimalValue]];
-                stop.lon = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lon"] decimalValue]];
+                if ( [stop_attributes objectForKey:@"lat"] != [NSNull null]) {
+                    stop.lat = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lat"] decimalValue]];
+                    stop.lon = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lon"] decimalValue]];
+                }
                 stop.slug = [stop_attributes objectForKey:@"slug"];
                 stop.accessible = [stop_attributes objectForKey:@"accessible"];
                 City* city = [cities objectForKey:[stop_attributes objectForKey:@"city_id"]];

@@ -15,6 +15,7 @@
     NSMutableDictionary* storedStops;
     NSDictionary* cities;
     NSDictionary* stopSrcId;
+    NSDictionary* stopOldSrcId;
     
     NSManagedObjectContext* context;
     

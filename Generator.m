@@ -30,6 +30,7 @@
     storedStops = [NSMutableDictionary dictionaryWithCapacity:700] ; // magic
     cities = [NSMutableDictionary dictionaryWithCapacity:40];
     stopSrcId = [NSMutableDictionary dictionaryWithCapacity:700];
+    stopOldSrcId = [NSMutableDictionary dictionaryWithCapacity:700];
     return self;
 }
 
@@ -82,6 +83,8 @@
     NSArray* data = [self loadRemoteJsonFor:@"stops/main_ids"];
     for( NSArray* stopInfo in data ) {
         [stopSrcId setValue:[stopInfo objectAtIndex:1]
+                     forKey:[[stopInfo objectAtIndex:0] stringValue]];
+        [stopOldSrcId setValue:[stopInfo objectAtIndex:2]
                      forKey:[[stopInfo objectAtIndex:0] stringValue]];
     }
 }
@@ -155,6 +158,10 @@ void incTypeCounter(Stop* stop, NSString* name ) {
         insertedObjects++;
         stopAlias.src_code = [attributes objectForKey:@"src_code"];
         stopAlias.src_id = [attributes objectForKey:@"src_id"];
+        id old_src_id = [attributes objectForKey:@"old_src_id"];
+        if ( old_src_id != [NSNull null] ) {
+            stopAlias.old_src_id = old_src_id;
+        }
         stopAlias.stop = stop;
     }
 }
@@ -211,6 +218,10 @@ void incTypeCounter(Stop* stop, NSString* name ) {
         line.bgcolor = [attributes objectForKey:@"bgcolor"];
         line.fgcolor = [attributes objectForKey:@"fgcolor"];
         line.usage = [attributes objectForKey:@"usage"];
+        id old_line_id = [attributes objectForKey:@"old_src_id"];
+        if ( old_line_id != [NSNull null] ) {
+            line.old_src_id = old_line_id;
+        }
         id picto_url = [attributes objectForKey:@"picto_url"];
         if ( picto_url != (id)[NSNull null] ) {
             line.has_picto = [NSNumber numberWithBool:([picto_url length] > 0)];
@@ -233,6 +244,10 @@ void incTypeCounter(Stop* stop, NSString* name ) {
                 insertedObjects++;
                 stop.name = [stop_attributes objectForKey:@"name"];
                 stop.src_id = [stopSrcId objectForKey:stop_id];
+                id old_id = [stopOldSrcId objectForKey:stop_id];
+                if ( old_id != [NSNull null] ) {
+                    stop.old_src_id = old_id;
+                }
                 if ( [stop_attributes objectForKey:@"lat"] != [NSNull null]) {
                     stop.lat = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lat"] decimalValue]];
                     stop.lon = [NSDecimalNumber decimalNumberWithDecimal:[[stop_attributes objectForKey:@"lon"] decimalValue]];

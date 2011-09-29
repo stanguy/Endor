@@ -18,6 +18,7 @@
 
 
 
+
 @interface LineID : NSManagedObjectID {}
 @end
 
@@ -29,15 +30,19 @@
 
 
 
-@property (nonatomic, retain) NSString *fgcolor;
-
-//- (BOOL)validateFgcolor:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) NSString *long_name;
 
 //- (BOOL)validateLong_name:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSNumber *has_picto;
+
+@property BOOL has_pictoValue;
+- (BOOL)has_pictoValue;
+- (void)setHas_pictoValue:(BOOL)value_;
+
+//- (BOOL)validateHas_picto:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -85,13 +90,15 @@
 
 
 
-@property (nonatomic, retain) NSNumber *has_picto;
+@property (nonatomic, retain) NSString *old_src_id;
 
-@property BOOL has_pictoValue;
-- (BOOL)has_pictoValue;
-- (void)setHas_pictoValue:(BOOL)value_;
+//- (BOOL)validateOld_src_id:(id*)value_ error:(NSError**)error_;
 
-//- (BOOL)validateHas_picto:(id*)value_ error:(NSError**)error_;
+
+
+@property (nonatomic, retain) NSString *fgcolor;
+
+//- (BOOL)validateFgcolor:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -135,12 +142,15 @@
 
 @interface _Line (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString*)primitiveFgcolor;
-- (void)setPrimitiveFgcolor:(NSString*)value;
-
-
 - (NSString*)primitiveLong_name;
 - (void)setPrimitiveLong_name:(NSString*)value;
+
+
+- (NSNumber*)primitiveHas_picto;
+- (void)setPrimitiveHas_picto:(NSNumber*)value;
+
+- (BOOL)primitiveHas_pictoValue;
+- (void)setPrimitiveHas_pictoValue:(BOOL)value_;
 
 
 - (NSString*)primitiveUsage;
@@ -173,11 +183,12 @@
 - (void)setPrimitiveSrc_id:(NSString*)value;
 
 
-- (NSNumber*)primitiveHas_picto;
-- (void)setPrimitiveHas_picto:(NSNumber*)value;
+- (NSString*)primitiveOld_src_id;
+- (void)setPrimitiveOld_src_id:(NSString*)value;
 
-- (BOOL)primitiveHas_pictoValue;
-- (void)setPrimitiveHas_pictoValue:(BOOL)value_;
+
+- (NSString*)primitiveFgcolor;
+- (void)setPrimitiveFgcolor:(NSString*)value;
 
 
 

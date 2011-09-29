@@ -29,15 +29,34 @@
 
 
 
-@dynamic fgcolor;
-
-
-
-
-
-
 @dynamic long_name;
 
+
+
+
+
+
+@dynamic has_picto;
+
+
+
+- (BOOL)has_pictoValue {
+	NSNumber *result = [self has_picto];
+	return [result boolValue];
+}
+
+- (void)setHas_pictoValue:(BOOL)value_ {
+	[self setHas_picto:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveHas_pictoValue {
+	NSNumber *result = [self primitiveHas_picto];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveHas_pictoValue:(BOOL)value_ {
+	[self setPrimitiveHas_picto:[NSNumber numberWithBool:value_]];
+}
 
 
 
@@ -123,27 +142,15 @@
 
 
 
-@dynamic has_picto;
+@dynamic old_src_id;
 
 
 
-- (BOOL)has_pictoValue {
-	NSNumber *result = [self has_picto];
-	return [result boolValue];
-}
 
-- (void)setHas_pictoValue:(BOOL)value_ {
-	[self setHas_picto:[NSNumber numberWithBool:value_]];
-}
 
-- (BOOL)primitiveHas_pictoValue {
-	NSNumber *result = [self primitiveHas_picto];
-	return [result boolValue];
-}
 
-- (void)setPrimitiveHas_pictoValue:(BOOL)value_ {
-	[self setPrimitiveHas_picto:[NSNumber numberWithBool:value_]];
-}
+@dynamic fgcolor;
+
 
 
 

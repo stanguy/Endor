@@ -4,9 +4,10 @@
 #import <CoreData/CoreData.h>
 
 
-@class Direction;
-@class StopTime;
 @class Stop;
+@class Direction;
+@class Polyline;
+@class StopTime;
 
 
 
@@ -103,8 +104,18 @@
 
 
 
+@property (nonatomic, retain) NSSet* stops;
+- (NSMutableSet*)stopsSet;
+
+
+
 @property (nonatomic, retain) NSSet* headsigns;
 - (NSMutableSet*)headsignsSet;
+
+
+
+@property (nonatomic, retain) NSSet* polylines;
+- (NSMutableSet*)polylinesSet;
 
 
 
@@ -113,30 +124,30 @@
 
 
 
-@property (nonatomic, retain) NSSet* stops;
-- (NSMutableSet*)stopsSet;
-
-
-
 
 @end
 
 @interface _Line (CoreDataGeneratedAccessors)
+
+- (void)addStops:(NSSet*)value_;
+- (void)removeStops:(NSSet*)value_;
+- (void)addStopsObject:(Stop*)value_;
+- (void)removeStopsObject:(Stop*)value_;
 
 - (void)addHeadsigns:(NSSet*)value_;
 - (void)removeHeadsigns:(NSSet*)value_;
 - (void)addHeadsignsObject:(Direction*)value_;
 - (void)removeHeadsignsObject:(Direction*)value_;
 
+- (void)addPolylines:(NSSet*)value_;
+- (void)removePolylines:(NSSet*)value_;
+- (void)addPolylinesObject:(Polyline*)value_;
+- (void)removePolylinesObject:(Polyline*)value_;
+
 - (void)addStop_times:(NSSet*)value_;
 - (void)removeStop_times:(NSSet*)value_;
 - (void)addStop_timesObject:(StopTime*)value_;
 - (void)removeStop_timesObject:(StopTime*)value_;
-
-- (void)addStops:(NSSet*)value_;
-- (void)removeStops:(NSSet*)value_;
-- (void)addStopsObject:(Stop*)value_;
-- (void)removeStopsObject:(Stop*)value_;
 
 @end
 
@@ -193,18 +204,23 @@
 
 
 
+- (NSMutableSet*)primitiveStops;
+- (void)setPrimitiveStops:(NSMutableSet*)value;
+
+
+
 - (NSMutableSet*)primitiveHeadsigns;
 - (void)setPrimitiveHeadsigns:(NSMutableSet*)value;
 
 
 
+- (NSMutableSet*)primitivePolylines;
+- (void)setPrimitivePolylines:(NSMutableSet*)value;
+
+
+
 - (NSMutableSet*)primitiveStop_times;
 - (void)setPrimitiveStop_times:(NSMutableSet*)value;
-
-
-
-- (NSMutableSet*)primitiveStops;
-- (void)setPrimitiveStops:(NSMutableSet*)value;
 
 
 @end

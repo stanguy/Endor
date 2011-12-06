@@ -156,6 +156,17 @@
 
 
 
+@dynamic stops;
+
+	
+- (NSMutableSet*)stopsSet {
+	[self willAccessValueForKey:@"stops"];
+	NSMutableSet *result = [self mutableSetValueForKey:@"stops"];
+	[self didAccessValueForKey:@"stops"];
+	return result;
+}
+	
+
 @dynamic headsigns;
 
 	
@@ -167,6 +178,17 @@
 }
 	
 
+@dynamic polylines;
+
+	
+- (NSMutableSet*)polylinesSet {
+	[self willAccessValueForKey:@"polylines"];
+	NSMutableSet *result = [self mutableSetValueForKey:@"polylines"];
+	[self didAccessValueForKey:@"polylines"];
+	return result;
+}
+	
+
 @dynamic stop_times;
 
 	
@@ -174,17 +196,6 @@
 	[self willAccessValueForKey:@"stop_times"];
 	NSMutableSet *result = [self mutableSetValueForKey:@"stop_times"];
 	[self didAccessValueForKey:@"stop_times"];
-	return result;
-}
-	
-
-@dynamic stops;
-
-	
-- (NSMutableSet*)stopsSet {
-	[self willAccessValueForKey:@"stops"];
-	NSMutableSet *result = [self mutableSetValueForKey:@"stops"];
-	[self didAccessValueForKey:@"stops"];
 	return result;
 }
 	

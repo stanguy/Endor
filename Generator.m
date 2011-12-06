@@ -14,6 +14,7 @@
 #import "Direction.h"
 #import "Line.h"
 #import "Poi.h"
+#import "Polyline.h"
 #import "Stop.h"
 #import "StopAlias.h"
 #import "StopTime.h"
@@ -69,9 +70,8 @@
 
 -(void)loadCities{
     NSArray* cities_data = [self loadRemoteJsonFor:@"cities"];
-    NSLog( @"cities: %d", [cities_data count] );
-    for( NSDictionary* container in cities_data ) {
-        NSDictionary* attributes = [container objectForKey:@"city"];
+    NSLog( @"cities: %lu", [cities_data count] );
+    for( NSDictionary* attributes in cities_data ) {
         City* city = [City insertInManagedObjectContext:context];
         city.name = [attributes objectForKey:@"name"];
         city.stop_count = [NSNumber numberWithInt:0];
@@ -92,8 +92,7 @@
 -(NSDictionary*) loadDirections:(Line*)line withId:(NSString*)dbId {
     NSArray* directions = [self loadRemoteJsonFor:[NSString stringWithFormat:@"lines/%@/headsigns", dbId]];
     NSMutableDictionary* dir_dict = [NSMutableDictionary dictionaryWithCapacity:150];
-    for( NSDictionary* container in directions ) {
-        NSDictionary* attributes = [container objectForKey:@"headsign"];
+    for( NSDictionary* attributes in directions ) {
         Direction* direction = [Direction insertInManagedObjectContext:context];
         insertedObjects++;
         direction.headsign = [attributes objectForKey:@"name"];
@@ -101,6 +100,16 @@
         [dir_dict setValue:direction forKey:[[attributes objectForKey:@"id"] stringValue]];
     }
     return dir_dict;
+}
+
+-(void) loadPolylines:(Line*)line withId:(NSString*)dbId {
+    NSArray* polylines = [self loadRemoteJsonFor:[NSString stringWithFormat:@"lines/%@/polylines", dbId]];
+    for( NSDictionary* attributes in polylines ) {
+        Polyline* polyline = [Polyline insertInManagedObjectContext:context];
+        insertedObjects++;
+        polyline.path = [attributes objectForKey:@"path"];
+        polyline.line = line;
+    }
 }
 
 -(NSDictionary*) loadTrips:(NSString*)dbId {
@@ -124,8 +133,7 @@ NSNumber* incCounter( NSNumber* num ) {
 -(int) loadStopTimesOfLine:(Line*)line withLineId:(NSString*)lineId atStop:(Stop*)stop withStopId:(NSString*)stopId withDirections:(NSDictionary*)dir_dict withBearings:(NSDictionary*)trips{
     NSArray* stop_times = [self loadRemoteJsonFor:[NSString stringWithFormat:@"lines/%@/stops/%@/stop_times", lineId, stopId]];
     int added_stop_times = 0;
-    for( NSDictionary* container in stop_times ) {
-        NSDictionary* attributes = [container objectForKey:@"stop_time"];
+    for( NSDictionary* attributes in stop_times ) {
         StopTime* stopTime = [StopTime insertInManagedObjectContext:context];
         insertedObjects++;
         stopTime.arrival = [attributes objectForKey:@"arrival"];
@@ -152,8 +160,7 @@ void incTypeCounter(Stop* stop, NSString* name ) {
 
 -(void) loadStopAliasesFor: (Stop*)stop withId:(NSString*) stop_id {
     NSArray* stop_aliases = [self loadRemoteJsonFor:[NSString stringWithFormat:@"stops/%@/stop_aliases", stop_id]];
-    for( NSDictionary* container in stop_aliases ) {
-        NSDictionary* attributes = [container objectForKey:@"stop_alias"];
+    for( NSDictionary* attributes in stop_aliases ) {
         StopAlias* stopAlias = [StopAlias insertInManagedObjectContext:context];
         insertedObjects++;
         stopAlias.src_code = [attributes objectForKey:@"src_code"];
@@ -207,10 +214,9 @@ void incTypeCounter(Stop* stop, NSString* name ) {
     
     NSArray* lines_data = [self loadRemoteJsonFor:@"lines"];
     int stop_times_added = 0;
-    for( NSDictionary* container in lines_data ) {
+    for( NSDictionary* attributes in lines_data ) {
         Line* line = [Line insertInManagedObjectContext:context];
         insertedObjects++;
-        NSDictionary* attributes = [container objectForKey:@"line"];
         NSString* dbId = [attributes objectForKey:@"id"];
         line.short_name = [attributes objectForKey:@"short_name"];
         line.long_name = [attributes objectForKey:@"short_long_name"];
@@ -231,12 +237,12 @@ void incTypeCounter(Stop* stop, NSString* name ) {
         line.forced_id = [NSNumber numberWithInt:[line.short_name intValue]];
         line.accessible = [attributes objectForKey:@"accessible"];
         NSDictionary* dir_dict = [self loadDirections:line withId:dbId];
+        [self loadPolylines:line withId:dbId];
         
         NSDictionary* trips = [self loadTrips:dbId];
         
         NSArray* stops = [self loadRemoteJsonFor:[NSString stringWithFormat:@"lines/%@/stops", dbId]];
-        for( NSDictionary* stop_container in stops ) {
-            NSDictionary* stop_attributes = [stop_container objectForKey:@"stop"];
+        for( NSDictionary* stop_attributes in stops ) {
             NSString* stop_id = [[stop_attributes objectForKey:@"id"] stringValue];
             Stop* stop = [storedStops objectForKey:stop_id];
             if ( nil == stop ) {
@@ -268,7 +274,7 @@ void incTypeCounter(Stop* stop, NSString* name ) {
         NSLog( @"stoptimes added: %d", stop_times_added );        
         [self flushIf];
     }
-    NSLog( @"%d lines", [lines_data count] );
+    NSLog( @"%lu lines", [lines_data count] );
     [self loadProximity];
     [self flushContext];
 }

@@ -4,8 +4,8 @@
 #import <CoreData/CoreData.h>
 
 
-@class Direction;
 @class Line;
+@class Direction;
 @class Stop;
 
 
@@ -72,13 +72,13 @@
 
 
 
-@property (nonatomic, retain) Direction* direction;
-//- (BOOL)validateDirection:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) Line* line;
 //- (BOOL)validateLine:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) Direction* direction;
+//- (BOOL)validateDirection:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-- (Direction*)primitiveDirection;
-- (void)setPrimitiveDirection:(Direction*)value;
-
-
-
 - (Line*)primitiveLine;
 - (void)setPrimitiveLine:(Line*)value;
+
+
+
+- (Direction*)primitiveDirection;
+- (void)setPrimitiveDirection:(Direction*)value;
 
 
 

@@ -140,11 +140,11 @@
 
 
 
-@dynamic direction;
+@dynamic line;
 
 	
 
-@dynamic line;
+@dynamic direction;
 
 	
 

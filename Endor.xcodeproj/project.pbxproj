@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		288AFF320F563D130085E73F /* Endor.m in Sources */ = {isa = PBXBuildFile; fileRef = 288AFF310F563D130085E73F /* Endor.m */; };
 		288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288AFF360F563DBA0085E73F /* CoreData.framework */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		960F0761148ECC6F003ED2A6 /* _Polyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 960F075E148ECC6F003ED2A6 /* _Polyline.m */; };
+		960F0762148ECC6F003ED2A6 /* Polyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 960F0760148ECC6F003ED2A6 /* Polyline.m */; };
 		966E4D7E13523594005AE1BF /* _StopAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E4D7B13523594005AE1BF /* _StopAlias.m */; };
 		966E4D7F13523594005AE1BF /* StopAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E4D7D13523594005AE1BF /* StopAlias.m */; };
 		9677B14212F0F1410016A460 /* _ClosePoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13B12F0F1410016A460 /* _ClosePoi.m */; };
@@ -51,6 +53,10 @@
 		288AFF340F563D390085E73F /* Endor_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Endor_Prefix.pch; sourceTree = "<group>"; };
 		288AFF360F563DBA0085E73F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD76FA10486AA7600D96B5E /* Endor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Endor; sourceTree = BUILT_PRODUCTS_DIR; };
+		960F075D148ECC6F003ED2A6 /* _Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Polyline.h; sourceTree = "<group>"; };
+		960F075E148ECC6F003ED2A6 /* _Polyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Polyline.m; sourceTree = "<group>"; };
+		960F075F148ECC6F003ED2A6 /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
+		960F0760148ECC6F003ED2A6 /* Polyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polyline.m; sourceTree = "<group>"; };
 		966E4D7A13523594005AE1BF /* _StopAlias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _StopAlias.h; sourceTree = "<group>"; };
 		966E4D7B13523594005AE1BF /* _StopAlias.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _StopAlias.m; sourceTree = "<group>"; };
 		966E4D7C13523594005AE1BF /* StopAlias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopAlias.h; sourceTree = "<group>"; };
@@ -159,6 +165,10 @@
 		96CB921512ECBAB900EFB75C /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				960F075D148ECC6F003ED2A6 /* _Polyline.h */,
+				960F075E148ECC6F003ED2A6 /* _Polyline.m */,
+				960F075F148ECC6F003ED2A6 /* Polyline.h */,
+				960F0760148ECC6F003ED2A6 /* Polyline.m */,
 				966E4D7A13523594005AE1BF /* _StopAlias.h */,
 				966E4D7B13523594005AE1BF /* _StopAlias.m */,
 				966E4D7C13523594005AE1BF /* StopAlias.h */,
@@ -230,10 +240,11 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = dthg.net;
 			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "Endor" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -275,6 +286,8 @@
 				9677B14512F0F1410016A460 /* Poi.m in Sources */,
 				966E4D7E13523594005AE1BF /* _StopAlias.m in Sources */,
 				966E4D7F13523594005AE1BF /* StopAlias.m in Sources */,
+				960F0761148ECC6F003ED2A6 /* _Polyline.m in Sources */,
+				960F0762148ECC6F003ED2A6 /* Polyline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +300,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -319,8 +331,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -332,8 +343,7 @@
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

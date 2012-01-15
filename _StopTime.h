@@ -14,6 +14,7 @@
 
 
 
+
 @interface StopTimeID : NSManagedObjectID {}
 @end
 
@@ -32,6 +33,16 @@
 - (void)setArrivalValue:(int)value_;
 
 //- (BOOL)validateArrival:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSNumber *stop_sequence;
+
+@property short stop_sequenceValue;
+- (short)stop_sequenceValue;
+- (void)setStop_sequenceValue:(short)value_;
+
+//- (BOOL)validateStop_sequence:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -88,11 +99,6 @@
 
 
 
-+ (NSArray*)fetchStopTimeComing:(NSManagedObjectContext*)moc_ ;
-+ (NSArray*)fetchStopTimeComing:(NSManagedObjectContext*)moc_ error:(NSError**)error_;
-
-
-
 @end
 
 @interface _StopTime (CoreDataGeneratedAccessors)
@@ -106,6 +112,13 @@
 
 - (int)primitiveArrivalValue;
 - (void)setPrimitiveArrivalValue:(int)value_;
+
+
+- (NSNumber*)primitiveStop_sequence;
+- (void)setPrimitiveStop_sequence:(NSNumber*)value;
+
+- (short)primitiveStop_sequenceValue;
+- (void)setPrimitiveStop_sequenceValue:(short)value_;
 
 
 - (NSNumber*)primitiveTrip_id;

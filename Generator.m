@@ -140,6 +140,7 @@ NSNumber* incCounter( NSNumber* num ) {
         stopTime.departure = [attributes objectForKey:@"departure"];
         stopTime.calendar = [attributes objectForKey:@"calendar"];
         stopTime.trip_id = [attributes objectForKey:@"trip_id"];
+        stopTime.stop_sequence = [attributes objectForKey:@"stop_sequence"];
         NSString* bearing = [trips objectForKey:[stopTime.trip_id stringValue]];
         if( bearing != nil && ( bearing != (id)[NSNull null] ) ){
             stopTime.trip_bearing = bearing;

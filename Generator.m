@@ -222,6 +222,9 @@ void incTypeCounter(Stop* stop, NSString* name ) {
         line.short_name = [attributes objectForKey:@"short_name"];
         line.long_name = [attributes objectForKey:@"short_long_name"];
         line.src_id = [attributes objectForKey:@"src_id"];
+        if ( line.src_id == (id)[NSNull null] ) {
+            NSLog( @"Invalid src_id for %@", line.long_name );
+        }
         line.bgcolor = [attributes objectForKey:@"bgcolor"];
         line.fgcolor = [attributes objectForKey:@"fgcolor"];
         line.usage = [attributes objectForKey:@"usage"];
@@ -231,7 +234,12 @@ void incTypeCounter(Stop* stop, NSString* name ) {
         }
         id picto_url = [attributes objectForKey:@"picto_url"];
         if ( picto_url != (id)[NSNull null] ) {
-            line.has_picto = [NSNumber numberWithBool:([picto_url length] > 0)];
+            id picto_url_url = [picto_url objectForKey:@"url"];
+            if ( picto_url_url != (id)[NSNull null] ) {
+                line.has_picto = [NSNumber numberWithBool:([picto_url_url length] > 0)];
+            } else {
+                line.has_picto = [NSNumber numberWithBool:NO];
+            }
         } else {
             line.has_picto = [NSNumber numberWithBool:NO];
         }
@@ -251,6 +259,9 @@ void incTypeCounter(Stop* stop, NSString* name ) {
                 insertedObjects++;
                 stop.name = [stop_attributes objectForKey:@"name"];
                 stop.src_id = [stopSrcId objectForKey:stop_id];
+                if ( stop.src_id == (id)[NSNull null] ) {
+                    NSLog( @"Wrong src_id for stop %@", stop.name );
+                }
                 id old_id = [stopOldSrcId objectForKey:stop_id];
                 if ( old_id != [NSNull null] ) {
                     stop.old_src_id = old_id;

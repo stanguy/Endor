@@ -4,6 +4,18 @@
 #import <CoreData/CoreData.h>
 
 
+extern const struct DirectionAttributes {
+	__unsafe_unretained NSString *headsign;
+} DirectionAttributes;
+
+extern const struct DirectionRelationships {
+	__unsafe_unretained NSString *line;
+	__unsafe_unretained NSString *stop_times;
+} DirectionRelationships;
+
+extern const struct DirectionFetchedProperties {
+} DirectionFetchedProperties;
+
 @class Line;
 @class StopTime;
 
@@ -20,20 +32,29 @@
 
 
 
-@property (nonatomic, retain) NSString *headsign;
+
+
+@property (nonatomic, strong) NSString* headsign;
+
+
 
 //- (BOOL)validateHeadsign:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) Line* line;
+
+@property (nonatomic, strong) Line *line;
+
 //- (BOOL)validateLine:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSSet* stop_times;
+
+@property (nonatomic, strong) NSSet *stop_times;
+
 - (NSMutableSet*)stop_timesSet;
+
 
 
 
@@ -51,8 +72,10 @@
 
 @interface _Direction (CoreDataGeneratedPrimitiveAccessors)
 
+
 - (NSString*)primitiveHeadsign;
 - (void)setPrimitiveHeadsign:(NSString*)value;
+
 
 
 

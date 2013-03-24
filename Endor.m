@@ -18,8 +18,6 @@ NSString* dbPath();
 
 int main (int argc, const char * argv[]) {
 	
-    objc_startCollectorThread();
-	
     unlink( [dbPath() UTF8String] );
     
 	// Create the managed object context

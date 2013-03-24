@@ -4,6 +4,17 @@
 #import <CoreData/CoreData.h>
 
 
+extern const struct PolylineAttributes {
+	__unsafe_unretained NSString *path;
+} PolylineAttributes;
+
+extern const struct PolylineRelationships {
+	__unsafe_unretained NSString *line;
+} PolylineRelationships;
+
+extern const struct PolylineFetchedProperties {
+} PolylineFetchedProperties;
+
 @class Line;
 
 
@@ -19,15 +30,22 @@
 
 
 
-@property (nonatomic, retain) NSString *path;
+
+
+@property (nonatomic, strong) NSString* path;
+
+
 
 //- (BOOL)validatePath:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) Line* line;
+
+@property (nonatomic, strong) Line *line;
+
 //- (BOOL)validateLine:(id*)value_ error:(NSError**)error_;
+
 
 
 
@@ -40,8 +58,10 @@
 
 @interface _Polyline (CoreDataGeneratedPrimitiveAccessors)
 
+
 - (NSString*)primitivePath;
 - (void)setPrimitivePath:(NSString*)value;
+
 
 
 

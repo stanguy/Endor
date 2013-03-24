@@ -4,6 +4,19 @@
 #import <CoreData/CoreData.h>
 
 
+extern const struct StopAliasAttributes {
+	__unsafe_unretained NSString *old_src_id;
+	__unsafe_unretained NSString *src_code;
+	__unsafe_unretained NSString *src_id;
+} StopAliasAttributes;
+
+extern const struct StopAliasRelationships {
+	__unsafe_unretained NSString *stop;
+} StopAliasRelationships;
+
+extern const struct StopAliasFetchedProperties {
+} StopAliasFetchedProperties;
+
 @class Stop;
 
 
@@ -21,27 +34,42 @@
 
 
 
-@property (nonatomic, retain) NSString *src_code;
-
-//- (BOOL)validateSrc_code:(id*)value_ error:(NSError**)error_;
 
 
-
-@property (nonatomic, retain) NSString *src_id;
-
-//- (BOOL)validateSrc_id:(id*)value_ error:(NSError**)error_;
+@property (nonatomic, strong) NSString* old_src_id;
 
 
-
-@property (nonatomic, retain) NSString *old_src_id;
 
 //- (BOOL)validateOld_src_id:(id*)value_ error:(NSError**)error_;
 
 
 
 
-@property (nonatomic, retain) Stop* stop;
+
+@property (nonatomic, strong) NSString* src_code;
+
+
+
+//- (BOOL)validateSrc_code:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* src_id;
+
+
+
+//- (BOOL)validateSrc_id:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) Stop *stop;
+
 //- (BOOL)validateStop:(id*)value_ error:(NSError**)error_;
+
 
 
 
@@ -54,16 +82,22 @@
 
 @interface _StopAlias (CoreDataGeneratedPrimitiveAccessors)
 
+
+- (NSString*)primitiveOld_src_id;
+- (void)setPrimitiveOld_src_id:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveSrc_code;
 - (void)setPrimitiveSrc_code:(NSString*)value;
+
+
 
 
 - (NSString*)primitiveSrc_id;
 - (void)setPrimitiveSrc_id:(NSString*)value;
 
-
-- (NSString*)primitiveOld_src_id;
-- (void)setPrimitiveOld_src_id:(NSString*)value;
 
 
 

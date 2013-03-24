@@ -12,6 +12,8 @@
 #import "City.h"
 #import "ClosePoi.h"
 #import "Direction.h"
+#import "GTFSCalendar.h"
+#import "GTFSCalendarDate.h"
 #import "Line.h"
 #import "Poi.h"
 #import "Polyline.h"
@@ -25,13 +27,14 @@
 
 -(Generator*) initWithBaseUrl:(NSString*)url andContext:(NSManagedObjectContext*)pcontext{
     self = [super init];
-    baseUrl = [url retain];
-    context = [pcontext retain];
+    baseUrl = url;
+    context = pcontext;
     insertedObjects = 0;
     storedStops = [NSMutableDictionary dictionaryWithCapacity:700] ; // magic
     cities = [NSMutableDictionary dictionaryWithCapacity:40];
     stopSrcId = [NSMutableDictionary dictionaryWithCapacity:700];
     stopOldSrcId = [NSMutableDictionary dictionaryWithCapacity:700];
+    calendars = [NSMutableDictionary dictionaryWithCapacity:30];
     return self;
 }
 
@@ -77,6 +80,37 @@
         city.stop_count = [NSNumber numberWithInt:0];
         [cities setValue:city forKey:[attributes objectForKey:@"id"]];
     }
+}
+
+-(void)loadCalendars {
+    NSArray* calendars_data = [self loadRemoteJsonFor:@"calendars"];
+    NSLog( @"calendars: %lu", [calendars_data count] );
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    NSTimeZone* tz = [NSTimeZone timeZoneWithName:@"Europe/Paris"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setTimeZone:tz];
+    for( NSDictionary* attributes in calendars_data ) {
+        GTFSCalendar* calendar = [GTFSCalendar insertInManagedObjectContext:context];
+        calendar.days = [attributes objectForKey:@"days"];
+        calendar.start_date = [dateFormatter dateFromString:[attributes objectForKey:@"start_date"]];
+        calendar.end_date = [dateFormatter dateFromString:[attributes objectForKey:@"end_date"]];
+        //        NSLog( @"calendar: %@", calendar );
+        [calendars setValue:calendar forKey:[attributes objectForKey:@"id"]];
+    }
+    
+    NSArray* calendar_dates_data = [self loadRemoteJsonFor:@"calendar_dates"];
+    NSLog( @"calendar_dates: %lu", [calendar_dates_data count] );
+    for( NSDictionary* attributes in calendar_dates_data ) {
+        GTFSCalendarDate* calendar_date = [GTFSCalendarDate insertInManagedObjectContext:context];
+        calendar_date.is_exclusion = [attributes objectForKey:@"exclusion"];
+        calendar_date.exception_date = [dateFormatter dateFromString:[attributes objectForKey:@"exception_date"]];
+        //        NSLog( @"calendar_date: %@", calendar_date );
+        //        [calendars setValue:calendar forKey:[attributes objectForKey:@"id"]];
+        GTFSCalendar* calendar = [calendars objectForKey:[attributes objectForKey:@"calendar_id"]];
+        calendar_date.calendar = calendar;
+        //        NSLog( @"calendar: %@", calendar );
+    }
+    
 }
 
 -(void)loadStopSrcID {
@@ -138,7 +172,7 @@ NSNumber* incCounter( NSNumber* num ) {
         insertedObjects++;
         stopTime.arrival = [attributes objectForKey:@"arrival"];
         stopTime.departure = [attributes objectForKey:@"departure"];
-        stopTime.calendar = [attributes objectForKey:@"calendar"];
+        stopTime.calendar = [calendars objectForKey:[attributes objectForKey:@"calendar_id"]];
         stopTime.trip_id = [attributes objectForKey:@"trip_id"];
         stopTime.stop_sequence = [attributes objectForKey:@"stop_sequence"];
         NSString* bearing = [trips objectForKey:[stopTime.trip_id stringValue]];
@@ -210,6 +244,7 @@ void incTypeCounter(Stop* stop, NSString* name ) {
 -(void)project {
     [context setUndoManager:nil];
     [self loadCities];
+    [self loadCalendars];
     [self loadStopSrcID];
     
     

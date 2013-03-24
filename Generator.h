@@ -16,6 +16,7 @@
     NSDictionary* cities;
     NSDictionary* stopSrcId;
     NSDictionary* stopOldSrcId;
+    NSDictionary* calendars;
     
     NSManagedObjectContext* context;
     

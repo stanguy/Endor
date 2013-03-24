@@ -3,6 +3,17 @@
 
 #import "_Polyline.h"
 
+const struct PolylineAttributes PolylineAttributes = {
+	.path = @"path",
+};
+
+const struct PolylineRelationships PolylineRelationships = {
+	.line = @"line",
+};
+
+const struct PolylineFetchedProperties PolylineFetchedProperties = {
+};
+
 @implementation PolylineID
 @end
 
@@ -26,6 +37,13 @@
 	return (PolylineID*)[super objectID];
 }
 
++ (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
+	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
+	
+
+	return keyPaths;
+}
+
 
 
 
@@ -39,6 +57,7 @@
 @dynamic line;
 
 	
+
 
 
 

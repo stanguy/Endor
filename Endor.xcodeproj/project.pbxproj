@@ -12,13 +12,18 @@
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		960F0761148ECC6F003ED2A6 /* _Polyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 960F075E148ECC6F003ED2A6 /* _Polyline.m */; };
 		960F0762148ECC6F003ED2A6 /* Polyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 960F0760148ECC6F003ED2A6 /* Polyline.m */; };
+		961D609415FFBB45006650B5 /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961D609315FFBB45006650B5 /* YAJL.framework */; };
+		961D609615FFBED2006650B5 /* YAJL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 961D609315FFBB45006650B5 /* YAJL.framework */; };
+		9630AB3416FA6FFD00E493CB /* _GTFSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9630AB2D16FA6FFD00E493CB /* _GTFSCalendar.m */; };
+		9630AB3516FA6FFD00E493CB /* _GTFSCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9630AB2F16FA6FFD00E493CB /* _GTFSCalendarDate.m */; };
+		9630AB3616FA6FFD00E493CB /* GTFSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9630AB3116FA6FFD00E493CB /* GTFSCalendar.m */; };
+		9630AB3716FA6FFD00E493CB /* GTFSCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9630AB3316FA6FFD00E493CB /* GTFSCalendarDate.m */; };
 		966E4D7E13523594005AE1BF /* _StopAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E4D7B13523594005AE1BF /* _StopAlias.m */; };
 		966E4D7F13523594005AE1BF /* StopAlias.m in Sources */ = {isa = PBXBuildFile; fileRef = 966E4D7D13523594005AE1BF /* StopAlias.m */; };
 		9677B14212F0F1410016A460 /* _ClosePoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13B12F0F1410016A460 /* _ClosePoi.m */; };
 		9677B14312F0F1410016A460 /* _Poi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13D12F0F1410016A460 /* _Poi.m */; };
 		9677B14412F0F1410016A460 /* ClosePoi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B13F12F0F1410016A460 /* ClosePoi.m */; };
 		9677B14512F0F1410016A460 /* Poi.m in Sources */ = {isa = PBXBuildFile; fileRef = 9677B14112F0F1410016A460 /* Poi.m */; };
-		96CB91FA12ECB93700EFB75C /* YAJL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB91F912ECB93700EFB75C /* YAJL.framework */; };
 		96CB921212ECBA8200EFB75C /* Transit.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921112ECBA8200EFB75C /* Transit.xcdatamodel */; };
 		96CB922A12ECBAD600EFB75C /* _City.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921712ECBAD600EFB75C /* _City.m */; };
 		96CB922B12ECBAD600EFB75C /* _Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CB921912ECBAD600EFB75C /* _Direction.m */; };
@@ -44,6 +49,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		961D609515FFBEC1006650B5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				961D609615FFBED2006650B5 /* YAJL.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +72,15 @@
 		960F075E148ECC6F003ED2A6 /* _Polyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Polyline.m; sourceTree = "<group>"; };
 		960F075F148ECC6F003ED2A6 /* Polyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Polyline.h; sourceTree = "<group>"; };
 		960F0760148ECC6F003ED2A6 /* Polyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polyline.m; sourceTree = "<group>"; };
+		961D609315FFBB45006650B5 /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YAJL.framework; sourceTree = "<group>"; };
+		9630AB2C16FA6FFD00E493CB /* _GTFSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _GTFSCalendar.h; sourceTree = "<group>"; };
+		9630AB2D16FA6FFD00E493CB /* _GTFSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _GTFSCalendar.m; sourceTree = "<group>"; };
+		9630AB2E16FA6FFD00E493CB /* _GTFSCalendarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _GTFSCalendarDate.h; sourceTree = "<group>"; };
+		9630AB2F16FA6FFD00E493CB /* _GTFSCalendarDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _GTFSCalendarDate.m; sourceTree = "<group>"; };
+		9630AB3016FA6FFD00E493CB /* GTFSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFSCalendar.h; sourceTree = "<group>"; };
+		9630AB3116FA6FFD00E493CB /* GTFSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFSCalendar.m; sourceTree = "<group>"; };
+		9630AB3216FA6FFD00E493CB /* GTFSCalendarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFSCalendarDate.h; sourceTree = "<group>"; };
+		9630AB3316FA6FFD00E493CB /* GTFSCalendarDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFSCalendarDate.m; sourceTree = "<group>"; };
 		966E4D7A13523594005AE1BF /* _StopAlias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _StopAlias.h; sourceTree = "<group>"; };
 		966E4D7B13523594005AE1BF /* _StopAlias.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _StopAlias.m; sourceTree = "<group>"; };
 		966E4D7C13523594005AE1BF /* StopAlias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopAlias.h; sourceTree = "<group>"; };
@@ -69,7 +93,6 @@
 		9677B13F12F0F1410016A460 /* ClosePoi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosePoi.m; sourceTree = "<group>"; };
 		9677B14012F0F1410016A460 /* Poi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poi.h; sourceTree = "<group>"; };
 		9677B14112F0F1410016A460 /* Poi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Poi.m; sourceTree = "<group>"; };
-		96CB91F912ECB93700EFB75C /* YAJL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJL.framework; path = Library/Frameworks/YAJL.framework; sourceTree = SDKROOT; };
 		96CB921112ECBA8200EFB75C /* Transit.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Transit.xcdatamodel; sourceTree = "<group>"; };
 		96CB921612ECBAD600EFB75C /* _City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _City.h; sourceTree = "<group>"; };
 		96CB921712ECBAD600EFB75C /* _City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _City.m; sourceTree = "<group>"; };
@@ -103,8 +126,8 @@
 			files = (
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
 				288AFF370F563DBA0085E73F /* CoreData.framework in Frameworks */,
-				96CB91FA12ECB93700EFB75C /* YAJL.framework in Frameworks */,
 				96CB94B012EE465500EFB75C /* libsqlite3.dylib in Frameworks */,
+				961D609415FFBB45006650B5 /* YAJL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +161,7 @@
 		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				96CB91F912ECB93700EFB75C /* YAJL.framework */,
+				961D609315FFBB45006650B5 /* YAJL.framework */,
 				288AFF360F563DBA0085E73F /* CoreData.framework */,
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
 				96CB94AF12EE465500EFB75C /* libsqlite3.dylib */,
@@ -165,6 +188,14 @@
 		96CB921512ECBAB900EFB75C /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				9630AB2C16FA6FFD00E493CB /* _GTFSCalendar.h */,
+				9630AB2D16FA6FFD00E493CB /* _GTFSCalendar.m */,
+				9630AB2E16FA6FFD00E493CB /* _GTFSCalendarDate.h */,
+				9630AB2F16FA6FFD00E493CB /* _GTFSCalendarDate.m */,
+				9630AB3016FA6FFD00E493CB /* GTFSCalendar.h */,
+				9630AB3116FA6FFD00E493CB /* GTFSCalendar.m */,
+				9630AB3216FA6FFD00E493CB /* GTFSCalendarDate.h */,
+				9630AB3316FA6FFD00E493CB /* GTFSCalendarDate.m */,
 				960F075D148ECC6F003ED2A6 /* _Polyline.h */,
 				960F075E148ECC6F003ED2A6 /* _Polyline.m */,
 				960F075F148ECC6F003ED2A6 /* Polyline.h */,
@@ -220,6 +251,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "Endor" */;
 			buildPhases = (
+				961D609515FFBEC1006650B5 /* CopyFiles */,
 				8DD76F990486AA7600D96B5E /* Sources */,
 				8DD76F9B0486AA7600D96B5E /* Frameworks */,
 				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
@@ -288,6 +320,10 @@
 				966E4D7F13523594005AE1BF /* StopAlias.m in Sources */,
 				960F0761148ECC6F003ED2A6 /* _Polyline.m in Sources */,
 				960F0762148ECC6F003ED2A6 /* Polyline.m in Sources */,
+				9630AB3416FA6FFD00E493CB /* _GTFSCalendar.m in Sources */,
+				9630AB3516FA6FFD00E493CB /* _GTFSCalendarDate.m in Sources */,
+				9630AB3616FA6FFD00E493CB /* GTFSCalendar.m in Sources */,
+				9630AB3716FA6FFD00E493CB /* GTFSCalendarDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,13 +334,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Endor_Prefix.pch;
 				INSTALL_PATH = /usr/local/bin;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = Endor;
 			};
 			name = Debug;
@@ -313,11 +356,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Endor_Prefix.pch;
 				INSTALL_PATH = /usr/local/bin;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = Endor;
 			};
 			name = Release;
@@ -327,7 +377,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -340,7 +389,6 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = macosx;

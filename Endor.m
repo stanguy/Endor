@@ -66,6 +66,7 @@ int main (int argc, const char * argv[]) {
         sqlite3_finalize( stmt );
         ++i;
     }
+    sqlite3_close( db );
     
     return 0;
 }

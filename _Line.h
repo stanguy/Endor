@@ -10,6 +10,7 @@ extern const struct LineAttributes {
 	__unsafe_unretained NSString *fgcolor;
 	__unsafe_unretained NSString *forced_id;
 	__unsafe_unretained NSString *has_picto;
+	__unsafe_unretained NSString *is_hidden;
 	__unsafe_unretained NSString *long_name;
 	__unsafe_unretained NSString *old_src_id;
 	__unsafe_unretained NSString *short_name;
@@ -31,6 +32,7 @@ extern const struct LineFetchedProperties {
 @class Polyline;
 @class StopTime;
 @class Stop;
+
 
 
 
@@ -113,6 +115,20 @@ extern const struct LineFetchedProperties {
 - (void)setHas_pictoValue:(BOOL)value_;
 
 //- (BOOL)validateHas_picto:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* is_hidden;
+
+
+
+@property BOOL is_hiddenValue;
+- (BOOL)is_hiddenValue;
+- (void)setIs_hiddenValue:(BOOL)value_;
+
+//- (BOOL)validateIs_hidden:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -261,6 +277,15 @@ extern const struct LineFetchedProperties {
 
 - (BOOL)primitiveHas_pictoValue;
 - (void)setPrimitiveHas_pictoValue:(BOOL)value_;
+
+
+
+
+- (NSNumber*)primitiveIs_hidden;
+- (void)setPrimitiveIs_hidden:(NSNumber*)value;
+
+- (BOOL)primitiveIs_hiddenValue;
+- (void)setPrimitiveIs_hiddenValue:(BOOL)value_;
 
 
 

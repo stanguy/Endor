@@ -280,6 +280,7 @@ void incTypeCounter(Stop* stop, NSString* name ) {
         }
         line.forced_id = [NSNumber numberWithInt:[line.short_name intValue]];
         line.accessible = [attributes objectForKey:@"accessible"];
+        line.is_hidden = [attributes objectForKey:@"hidden"];
         NSDictionary* dir_dict = [self loadDirections:line withId:dbId];
         [self loadPolylines:line withId:dbId];
         

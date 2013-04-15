@@ -9,6 +9,7 @@
 #import "Generator.h"
 #import <YAJL/YAJL.h>
 
+#import "Agency.h"
 #import "City.h"
 #import "ClosePoi.h"
 #import "Direction.h"
@@ -65,10 +66,24 @@
 
 
 -(id)loadRemoteJsonFor:(NSString*)pathComponent {
-    NSString* path = [NSString stringWithFormat:@"%@/%@.json", baseUrl, pathComponent];
+    NSString* path = nil;
+    if ( nil != pathComponent ) {
+        path = [NSString stringWithFormat:@"%@/%@.json", baseUrl, pathComponent];
+    } else {
+        path = [NSString stringWithFormat:@"%@.json", baseUrl];
+    }
     NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:path]];
     id json = [data yajl_JSON];
     return json;
+}
+
+-(void)loadAgency {
+    NSDictionary* data = [self loadRemoteJsonFor:nil];
+    Agency* agency = [Agency insertInManagedObjectContext:context];
+    agency.feed_ref = [data objectForKey:@"feed_ref"];
+    agency.feed_url = [data objectForKey:@"feed_url"];
+    agency.city = [data objectForKey:@"city"];
+    agency.ads_allowed = [data objectForKey:@"ads_allowed"];
 }
 
 -(void)loadCities{
@@ -243,6 +258,7 @@ void incTypeCounter(Stop* stop, NSString* name ) {
 
 -(void)project {
     [context setUndoManager:nil];
+    [self loadAgency];
     [self loadCities];
     [self loadCalendars];
     [self loadStopSrcID];

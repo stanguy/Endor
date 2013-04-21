@@ -108,8 +108,8 @@
         GTFSCalendar* calendar = [GTFSCalendar insertInManagedObjectContext:context];
         calendar.days = [attributes objectForKey:@"days"];
         calendar.start_date = [dateFormatter dateFromString:[attributes objectForKey:@"start_date"]];
-        calendar.end_date = [dateFormatter dateFromString:[attributes objectForKey:@"end_date"]];
-        //        NSLog( @"calendar: %@", calendar );
+        calendar.end_date = [[dateFormatter dateFromString:[attributes objectForKey:@"end_date"]] dateByAddingTimeInterval:86400];
+                NSLog( @"calendar: %@", calendar );
         [calendars setValue:calendar forKey:[attributes objectForKey:@"id"]];
     }
     
@@ -125,7 +125,6 @@
         calendar_date.calendar = calendar;
         //        NSLog( @"calendar: %@", calendar );
     }
-    
 }
 
 -(void)loadStopSrcID {

@@ -81,7 +81,9 @@
     NSDictionary* data = [self loadRemoteJsonFor:nil];
     Agency* agency = [Agency insertInManagedObjectContext:context];
     agency.feed_ref = [data objectForKey:@"feed_ref"];
-    agency.feed_url = [data objectForKey:@"feed_url"];
+    if ( [data objectForKey:@"feed_url"] != (id)[NSNull null]) {
+        agency.feed_url = [data objectForKey:@"feed_url"];
+    }
     agency.city = [data objectForKey:@"city"];
     agency.ads_allowed = [data objectForKey:@"ads_allowed"];
 }
@@ -109,7 +111,7 @@
         calendar.days = [attributes objectForKey:@"days"];
         calendar.start_date = [dateFormatter dateFromString:[attributes objectForKey:@"start_date"]];
         calendar.end_date = [[dateFormatter dateFromString:[attributes objectForKey:@"end_date"]] dateByAddingTimeInterval:86400];
-                NSLog( @"calendar: %@", calendar );
+        //                NSLog( @"calendar: %@", calendar );
         [calendars setValue:calendar forKey:[attributes objectForKey:@"id"]];
     }
     
@@ -339,6 +341,7 @@ void incTypeCounter(Stop* stop, NSString* name ) {
     }
     NSLog( @"%lu lines", [lines_data count] );
     [self loadProximity];
+    NSLog( @"Done proximity loading" );
     [self flushContext];
 }
 

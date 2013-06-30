@@ -49,9 +49,11 @@ int main (int argc, const char * argv[]) {
         "CREATE INDEX zstoptime_full_index on zstoptime (zline,zstop,zcalendar,zarrival)",
         "CREATE INDEX zstoptime_fullstop_index on zstoptime(zstop,zcalendar,zarrival)",
         "CREATE INDEX zstoptime_trip_index on zstoptime (ztrip_id,zarrival)",
+        "VACUUM",
         NULL
     };
     int i = 0;
+    NSLog( @"And now, adding indexes" );
     while ( indexStmts[i] != NULL ) {
         sqlite3_stmt* stmt = NULL;
         sqlite3_prepare_v2( db, indexStmts[i], -1, &stmt, NULL );
@@ -67,7 +69,7 @@ int main (int argc, const char * argv[]) {
         ++i;
     }
     sqlite3_close( db );
-    
+    NSLog( @"Bye!" );
     return 0;
 }
 
